@@ -1,0 +1,9 @@
+<library path="lib/libposition_stiffness_controller">
+
+  <class name="pepper_controller_server/PositionStiffnessController" type="pepper_controller_server::PositionStiffnessController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      Position controller server.
+    </description>
+  </class>
+
+</library>

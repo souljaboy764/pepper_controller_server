@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="controller" default="position_stiffness" />
+ <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find pepper_controller_server)/config/pepper_rhand_$(arg controller).yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="pepper_trajectory_controller" pkg="controller_manager" type="spawner" respawn="true"
+    output="screen" args="
+      /pepper_dcm/RightArm_controller
+      /pepper_dcm/joint_state_controller "/>
+
+</launch>
