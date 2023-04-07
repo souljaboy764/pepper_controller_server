@@ -1,0 +1,7 @@
+type: pepper_controller_server/CompliantController
+joints: 
+  - RShoulderPitch 
+  - RShoulderRoll
+  - RElbowYaw
+  - RElbowRoll
+  - RWristYaw

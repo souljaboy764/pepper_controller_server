@@ -1,0 +1,9 @@
+<library path="lib/libcompliant_controller">
+
+  <class name="pepper_controller_server/CompliantController" type="pepper_controller_server::CompliantController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      Position-based compliant controller.
+    </description>
+  </class>
+
+</library>
