@@ -5,9 +5,6 @@ from pepper_controller_server.srv import JointTarget
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 
 rospy.init_node('talker')
-# robot_traj_publisher = rospy.Publisher("/pepper_dcm/RightArm_controller/command", Float64MultiArray, queue_size=1)
-# stiffness_pub = rospy.Publisher('/pepper_dcm/set_stiffness', Float32, queue_size=10)
-# rospy.wait_for_service('/joint_targets')
 send_target = rospy.ServiceProxy('/pepper_dcm/RightArm_controller/goal', JointTarget)
 
 
@@ -30,12 +27,8 @@ joint_trajectory.points[0].positions = default_joint_angles
 joint_trajectory.points[0].effort = (0.2*np.ones(num_joints)).tolist()
 rate.sleep()
 print('Looping')
-if True:
-# for i in range(10):
-# while not rospy.is_shutdown():
-	joint_trajectory.header.seq += 1
-	joint_trajectory.header.stamp = rospy.Time.now()
-	print(send_target(joint_trajectory))
-	# robot_traj_publisher.publish(Float64MultiArray(data=raised_angles))
-	rate.sleep()
-	print(joint_trajectory.header.seq)
+joint_trajectory.header.seq += 1
+joint_trajectory.header.stamp = rospy.Time.now()
+print(send_target(joint_trajectory))
+rate.sleep()
+print(joint_trajectory.header.seq)
